@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 
-import { set } from "mongoose";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -28,10 +28,11 @@ function SignUp() {
       const data = await res.json();
       console.log(data);
       setLoading(false);
-      if (data.success === true) {
+      if (data.success === false) {
         setError(true);
         return;
       }
+      navigate("/sign-in");
     } catch (error) {
       setLoading(false);
       setError(true);
@@ -72,7 +73,7 @@ function SignUp() {
       </form>
       <div className="flex gap-2 mt-5">
         <p>Have an Account?</p>
-        <Link to="sign-in ">
+        <Link to="sign-in">
           <span className="text-blue-500">Sign in</span>
         </Link>
       </div>
