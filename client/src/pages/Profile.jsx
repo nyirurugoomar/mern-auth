@@ -59,7 +59,6 @@ function Profile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       dispatch(updateUserStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
@@ -70,13 +69,12 @@ function Profile() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-
       if (data.success === false) {
         dispatch(updateUserFailure(data));
-      } else {
-        dispatch(updateUserSuccess(data));
-        setUpdateSuccess(true);
+        return;
       }
+      dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
     } catch (error) {
       dispatch(updateUserFailure(error));
     }
