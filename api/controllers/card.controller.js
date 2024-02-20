@@ -1,4 +1,4 @@
-import Card from "../models/card.model";
+import Card from "../models/card.model.js";
 
 export const getCards = (req, res) => {
   Card.find()
@@ -12,10 +12,9 @@ export const getCards = (req, res) => {
 
 //post
 export const createCard = async (req, res) => {
-  const { title, service, ssdNo } = req.body;
-  const companyProfilePicture = req.file;
+  const { title, service, ssdNo, companyProfilePicture } = req.body;
 
-  if (!title || !service || !ssdNo === undefined || !companyProfilePicture) {
+  if (!title || !service || !ssdNo || !companyProfilePicture === undefined) {
     return res
       .status(400)
       .json({ error: "missing or invalid fields in the request body" });
@@ -25,7 +24,7 @@ export const createCard = async (req, res) => {
       title,
       service,
       ssdNo,
-      companyProfilePicture: companyProfilePicture.path,
+      companyProfilePicture,
     });
 
     const savedCard = await card.save();
@@ -65,7 +64,7 @@ export const updateCard = async (req, res) => {
   }
 };
 //  delete
-const deleteCard = (req, res) => {
+export const deleteCard = (req, res) => {
   Card.deleteOne({ _id: req.params.cardID })
     .then((result) => {
       if (result.deletedCount === 0) {
