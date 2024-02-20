@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   getDownloadURL,
   getStorage,
@@ -167,6 +168,14 @@ function Profile() {
           {loading ? "Loading..." : "Update"}
         </button>
       </form>
+      <div className="flex flex-col mt-4">
+        <Link to="/card" className="flex flex-col">
+          <button className="bg-green-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
+            Create Card
+          </button>
+        </Link>
+      </div>
+
       <div className="flex justify-between mt-2">
         <span
           onClick={handleDeleteAccount}
