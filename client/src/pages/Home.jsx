@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-
 import axios from "axios";
 
 function Home() {
@@ -23,6 +22,16 @@ function Home() {
 
     fetchCards();
   }, []);
+
+  const handleDelete = async (cardID) => {
+    try {
+      await axios.delete(`http://localhost:5173/api/card/cards/${cardID}`);
+      setCards(cards.filter((card) => card._id !== cardID));
+    } catch (error) {
+      console.error("Error deleting card:", error);
+    }
+  };
+
   return (
     <div>
       <div className="bg-blue-800 p-20 w-full ">
@@ -59,6 +68,12 @@ function Home() {
                     <h1 className="text-center font-bold text-[50px]">
                       {card.ssdNo}
                     </h1>
+                    <button
+                      onClick={() => handleDelete(card._id)}
+                      className="bg-red-500 text-white px-4 py-2 mt-4 rounded-md"
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
               ))}

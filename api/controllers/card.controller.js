@@ -64,6 +64,19 @@ export const updateCard = async (req, res) => {
   }
 };
 //  delete
+// export const deleteCard = (req, res) => {
+//   Card.deleteOne({ _id: req.params.cardID })
+//     .then((result) => {
+//       if (result.deletedCount === 0) {
+//         return res.status(404).json({ error: "Card not found" });
+//       }
+//       res.json({ message: "Card Deleted" });
+//     })
+//     .catch((error) => {
+//       res.status(500).json({ error: error.message });
+//     });
+// };
+
 export const deleteCard = (req, res) => {
   Card.deleteOne({ _id: req.params.cardID })
     .then((result) => {

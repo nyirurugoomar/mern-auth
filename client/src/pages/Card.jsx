@@ -9,20 +9,21 @@ function Card() {
   const [companyService, setCompanyService] = useState("");
   const [supportNumber, setSupportNumber] = useState("");
   const [companyLogo, setCompanyLogo] = useState("");
-  const [error, setError] = useState(""); // Added error state
+  const [error, setError] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
     try {
       if (!companyName.trim()) {
-        setError("Please enter the company name"); // Fixed error message
+        setError("Please enter the company name");
       } else if (!companyService.trim()) {
         setError("Please enter the services");
       } else if (!supportNumber.trim()) {
         setError("Please enter the support number");
       } else {
-        setError(""); // Reset error state on successful submission
+        setError("");
         const response = await axios.post(
-          "http://localhost:5173/api/card/createCard", // Fixed URL
+          "http://localhost:5173/api/card/createCard",
           {
             title: companyName,
             service: companyService,
@@ -39,7 +40,7 @@ function Card() {
           setSupportNumber("");
           setCompanyLogo("");
 
-          navigateTo("/");
+          navigateTo("/"); // Navigate to home page
         } else {
           console.error("Error creating card:", response.statusText);
         }
@@ -53,13 +54,6 @@ function Card() {
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Create Card</h1>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-        {/* <input
-          type="file"
-          accept="image/*"
-          value={companyLogo}
-          onChange={(e) => setCompanyLogo(e.target.files)}
-        />{" "} */}
-
         <input
           type="text"
           placeholder="Company name"
@@ -84,7 +78,10 @@ function Card() {
         <div className="text-red-500 text-center">
           {error && <p>{error}</p>}
         </div>
-        <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
+        <button
+          className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+          type="submit"
+        >
           Save
         </button>
       </form>
