@@ -68,8 +68,25 @@ function Home() {
   return (
     <div>
       <div className="bg-blue-800 p-20 w-full ">
-        <h1 className="text-center text-white">Home page</h1>
-        <h1 className="text-center text-white mt-4">Search.....input</h1>
+        <div>
+          <section className=" ">
+            <div className="">
+              <h2 className="text-center text-white text-3xl mb-4 font-bold">
+                Welcome
+              </h2>
+              <div className="flex flex-row md:flex-row items-center md:items-stretch md:justify-center mt-4">
+                <input
+                  className="p-2 rounded-l-lg md:w-3/5 focus:outline-none"
+                  type="search"
+                  placeholder="Search..... "
+                />
+                <button className="bg-[#1B1464] p-2 md:p-4 text-white rounded-r-lg md:rounded-r-[20px] font-bold ">
+                  Search
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
       <div className="w-full h-full">
         {loading ? (
@@ -104,13 +121,13 @@ function Home() {
                     <div className="flex justify-between">
                       <button
                         onClick={() => handleDelete(card._id)}
-                        className=" text-red-600 px-4 py-2 mt-2 rounded-md"
+                        className="text-red-600 px-4 py-2 mt-2 rounded-md"
                       >
                         Delete
                       </button>
                       <button
                         onClick={() => handleUpdate(card._id)}
-                        className=" text-gray px-4 py-2 mt-2 rounded-md"
+                        className="text-gray px-4 py-2 mt-2 rounded-md"
                       >
                         Update
                       </button>
