@@ -68,12 +68,17 @@ function Home() {
                     <h1 className="text-center font-bold text-[50px]">
                       {card.ssdNo}
                     </h1>
-                    <button
-                      onClick={() => handleDelete(card._id)}
-                      className="bg-red-500 text-white px-4 py-2 mt-4 rounded-md"
-                    >
-                      Delete
-                    </button>
+                    <div className="flex justify-between">
+                      <button
+                        onClick={() => handleDelete(card._id)}
+                        className=" text-red-600 px-4 py-2 mt-2 rounded-md"
+                      >
+                        Delete
+                      </button>
+                      <button className=" text-gray px-4 py-2 mt-2 rounded-md">
+                        Update
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
