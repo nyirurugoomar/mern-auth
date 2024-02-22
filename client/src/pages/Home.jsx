@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Search from "../components/Search";
 
 function Home() {
   const [cards, setCards] = useState([]);
@@ -67,27 +68,7 @@ function Home() {
 
   return (
     <div>
-      <div className="bg-blue-800 p-20 w-full ">
-        <div>
-          <section className=" ">
-            <div className="">
-              <h2 className="text-center text-white text-3xl mb-4 font-bold">
-                Welcome
-              </h2>
-              <div className="flex flex-row md:flex-row items-center md:items-stretch md:justify-center mt-4">
-                <input
-                  className="p-2 rounded-l-lg md:w-3/5 focus:outline-none"
-                  type="search"
-                  placeholder="Search..... "
-                />
-                <button className="bg-[#1B1464] p-2 md:p-4 text-white rounded-r-lg md:rounded-r-[20px] font-bold ">
-                  Search
-                </button>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
+      <Search />
       <div className="w-full h-full">
         {loading ? (
           <div className="text-center mt-10">

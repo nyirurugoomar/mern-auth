@@ -6,12 +6,13 @@ import { useDispatch } from "react-redux";
 import { signInSuccess } from "../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
 
+import googleLogo from "../assets/google_icon.png";
+
 function OAuth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleGoogleClick = async () => {
     try {
-      // eslint-disable-next-line no-unused-vars
       const provider = new GoogleAuthProvider();
       const auth = getAuth(app);
       const result = await signInWithPopup(auth, provider);
@@ -26,7 +27,6 @@ function OAuth() {
           photo: result.user.photoURL,
         }),
       });
-      // eslint-disable-next-line no-unused-vars
       const data = await res.json();
       console.log(data);
       dispatch(signInSuccess(data));
@@ -38,11 +38,11 @@ function OAuth() {
   return (
     <button
       type="button"
-      // eslint-disable-next-line no-undef
       onClick={handleGoogleClick}
-      className="bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95"
+      className="flex items-center bg-white text-black p-3 rounded-lg uppercase hover:opacity-95 border-2 border-blue-800"
     >
-      Continue with google
+      <img src={googleLogo} alt="Google Logo" className="w-6 h-6 md:ml-24" />
+      Continue with Google
     </button>
   );
 }
