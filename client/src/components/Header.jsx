@@ -8,7 +8,7 @@ function Header() {
     <div className="bg-slate-200">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="font-bold">LOGO</h1>
+          <h1 className="font-bold">Help|Center</h1>
         </Link>
 
         <ul className="flex gap-4">

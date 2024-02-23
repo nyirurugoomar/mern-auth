@@ -76,3 +76,21 @@ export const deleteCard = (req, res) => {
       res.status(500).json({ error: error.message });
     });
 };
+
+export const searchCards = async (req, res) => {
+  const { term } = req.query;
+
+  try {
+    const cards = await Card.find({
+      $or: [
+        { title: { $regex: term, $options: "i" } }, // Case-insensitive search on title
+        { service: { $regex: term, $options: "i" } }, // Case-insensitive search on service
+        { ssdNo: { $regex: term, $options: "i" } }, // Case-insensitive search on ssdNo
+      ],
+    });
+
+    res.json(cards);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
