@@ -6,7 +6,8 @@ import {
   deleteCard,
   searchCards,
 } from "../controllers/card.controller.js";
-import { verifyToken } from "../utils/VerifyUser.js";
+import { verifyToken } from "../utils/verifyUser.js";
+// import { authorizeCardAccess } from "../utils/userPerform.js";
 
 const router = express.Router();
 router.get("/getCards", getCards);
