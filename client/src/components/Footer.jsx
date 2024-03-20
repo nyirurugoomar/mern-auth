@@ -38,7 +38,7 @@ function Footer() {
           </div>
         </div>
         <div>
-          <div className="flex gap-4 ">
+          <div className="md:flex gap-4 ">
             <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white ">
               Instgram
             </button>
