@@ -4,7 +4,7 @@ import React from "react";
 function Footer() {
   return (
     <div className="bg-blue-700 ">
-      <div className="justify-between mx-10 py-12 grid grid-cols-1 lg:grid-cols-2">
+      <div className="justify-between mx-10 py-8 grid grid-cols-1 lg:grid-cols-2">
         <div className="">
           <h1 className="text-[4rem]">Help|Center</h1>
           <div className="flex space-x-28 mt-4 text-white">
@@ -31,24 +31,24 @@ function Footer() {
 
       {/* // social media */}
 
-      <div className="justify-between mx-10 py-12 grid grid-cols-1 lg:grid-cols-2">
+      <div className="justify-between mx-10 py-8 grid grid-cols-1 lg:grid-cols-2">
         <div className="">
           <div className="flex space-x-12 text-white">
             <h3>Available on all social media</h3>
           </div>
         </div>
         <div>
-          <div className="md:flex gap-4 ">
-            <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white ">
+          <div className="md:after:flex  ">
+            <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white m-2 ">
               Instgram
             </button>
-            <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white ">
+            <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white m-2 ">
               Facebook
             </button>
-            <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white ">
+            <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white m-2 ">
               X(Twitter)
             </button>
-            <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white ">
+            <button className="rounded-2xl border-white border-[1px] px-4 py-1 text-white m-2 ">
               LinkedIn
             </button>
           </div>
