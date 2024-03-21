@@ -1,12 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <div className="bg-blue-700 ">
       <div className="justify-between mx-10 py-8 grid grid-cols-1 lg:grid-cols-2">
         <div className="">
-          <h1 className="text-[4rem]">Help|Center</h1>
+          <h1 className="text-[4rem] text-white"><span className="text-white bg-black rounded-lg py-4 px-4 font-mono">Help</span>|Center</h1>
           <div className="flex space-x-28 mt-4 text-white">
             <h3>Email</h3>
             <p>hello@helpcenter.com</p>
@@ -22,9 +23,12 @@ function Footer() {
             Free
           </h1>
           <div className="flex gap-4 mt-4">
-            <button className="rounded-2xl border-white  px-4 py-1 bg-white">
+          <Link to="/sign-in">
+          <button className="rounded-2xl border-white  px-4 py-1 bg-white">
               Get Start
             </button>
+          </Link>
+            
           </div>
         </div>
       </div>
