@@ -9,7 +9,7 @@ const firebaseConfig = {
   authDomain: "mern-auth-bb91c.firebaseapp.com",
   projectId: "mern-auth-bb91c",
   storageBucket: "mern-auth-bb91c.appspot.com",
-  messagingSenderId: "225656149993",
+  messagingSenderId: "225656149993", 
   appId: "1:225656149993:web:bd6cddbd4a17e009a55d78",
 };
 
