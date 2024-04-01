@@ -14,7 +14,7 @@ function Home() {
     const fetchCards = async () => {
       try {
         const response = await axios.get(
-          "https://mern-auth-original.onrender.com/api/card/getCards"
+          "http://localhost:5173/api/card/getCards"
         );
         setCards(response.data);
         setLoading(false);
